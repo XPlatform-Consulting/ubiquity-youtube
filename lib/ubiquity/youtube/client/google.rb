@@ -10,7 +10,7 @@ module Ubiquity
 
       class Google
 
-        APPLICATION_NAME = 'YouTube Operations Plugin'
+        APPLICATION_NAME = 'YouTube Library'
         YOUTUBE_API_SERVICE_NAME = 'youtube'
         YOUTUBE_API_VERSION = 'v3'
 
