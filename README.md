@@ -3,9 +3,10 @@ YouTube Library and Command Line Utilities
 
 Installation
 ------------
-  git clone https://github.com/XPlatform-Consulting/ubiquity-youtube.git
-  cd ubiquity-youtube
-  bundle install
+
+    git clone https://github.com/XPlatform-Consulting/ubiquity-youtube.git
+    cd ubiquity-youtube
+    bundle install
 
 Setup
 -----
