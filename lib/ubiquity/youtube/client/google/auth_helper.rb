@@ -184,6 +184,9 @@ module Ubiquity
             server.start()
             return !authorization.expired?
 
+          rescue LoadError => e
+            error e.message
+            return false
           rescue => e
             error e.message
             return false
