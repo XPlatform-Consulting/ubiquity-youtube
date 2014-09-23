@@ -33,12 +33,13 @@ op.on('--category-id ID', 'The Id of the category to add the video to.', "\tdefa
 op.on('--privacy-status PRIVACY', 'The privacy setting for the video.', "\tdefault: #{options[:privacy_status]}") { |v| options[:privacy_status] = v }
 op.on('--video-description DESC', 'The description for the video.') { |v| options[:description] = v }
 op.on('--video-title TITLE', 'The title of the video.') { |v| options[:title] = v }
+op.on('--tags TAG1,TAG2,TAG3', Array, 'A list of tags to apply to the video.') { |v| options[:tags] = v }
 op.on('--help', 'Display this screen.') { puts op; exit }
 op.parse!(ARGV.dup)
 
-
-
 args = options
+puts args
+exit
 # client_secrets_file_path = options.delete(:client_secrets_file_path)
 # auth_helper =
 

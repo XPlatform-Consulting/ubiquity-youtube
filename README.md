@@ -72,6 +72,7 @@ Usage: youtube_upload [options]
                                   default: private
     --video-description DESC     The description for the video.
     --video-title TITLE          The title of the video.
+    --tags TAG1,TAG2,TAG3        A list of tags to apply to the video.
     --help                       Display this screen.
         
 #### Examples of Usage:
@@ -80,4 +81,4 @@ Usage: youtube_upload [options]
   ./youtube_upload --help
   
 ###### Simple Usage
-  ./youtube_upload --file-path /media/movie.mov
+  ./youtube_upload --file-path /media/movie.mov --video-title "Title" --video-description "Description" --category-id 22 --privacy-status private --tags "tag 1,tag 2,tag 3" 
