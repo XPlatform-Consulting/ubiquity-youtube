@@ -6,7 +6,7 @@ Installation
 
     git clone https://github.com/XPlatform-Consulting/ubiquity-youtube.git
     cd ubiquity-youtube
-    bundle install
+    bundle update
 
 Setup
 -----
