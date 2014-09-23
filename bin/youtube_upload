@@ -30,8 +30,8 @@ op.on('--client-secrets-file-path PATH', 'The path to the file containing the cl
 op.on('--file-path PATH', 'The path of the file to upload.') { |v| options[:file_path] = v }
 op.on('--category-id ID', 'The Id of the category to add the video to.', "\tdefault: #{options[:category_id]}") { |v| options[:category_id] = v }
 op.on('--privacy-status PRIVACY', 'The privacy setting for the video.', "\tdefault: #{options[:privacy_status]}") { |v| options[:privacy_status] = v }
-op.on('--video-description DESC', 'The description for the video.') { |v| options[:video_description] = v }
-op.on('--video-title TITLE', 'The title of the video.') { |v| options[:video_title] = v }
+op.on('--video-description DESC', 'The description for the video.') { |v| options[:description] = v }
+op.on('--video-title TITLE', 'The title of the video.') { |v| options[:title] = v }
 op.on('--help', 'Display this screen.') { puts op; exit }
 op.parse!(ARGV.dup)
 
