@@ -185,10 +185,10 @@ module Ubiquity
             return !authorization.expired?
 
           rescue LoadError => e
-            error e.message
+            warn e.message
             return false
           rescue => e
-            error e.message
+            warn e.message
             return false
           end
 
