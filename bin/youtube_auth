@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+
+console = ARGV.delete('--console')
+def cli; @cli ||= Ubiquity::YouTube::Client::Google::AuthHelper::CLI end
+
+begin
+  if console
+    def load_cli; load 'ubiquity/youtube/client/google/auth_helper/cli.rb'; @cli = nil end; load_cli
+    require 'irb'; IRB.start
+  else
+    require 'ubiquity/youtube/client/google/auth_helper/cli'
+  end
+rescue LoadError
+  lib_path = File.expand_path('../../lib', __FILE__)
+  unless $:.include?(lib_path)
+    $:.unshift(lib_path)
+    #warn("Retrying to load Ubiquity-YouTube after adding #{lib_path} to $LOAD_PATH. The GEM may not be installed correctly.")
+    retry
+  end
+  abort("Failed to load the Ubiquity-YouTube gem. Exception: #{$!}")
+end
+
+
+unless console
+  cli.execute
+  auth = cli.auth_helper.authorization
+  puts %({ "client_id" : "#{auth.client_id}", "access_token" : "#{auth.access_token}", "refresh_token" : "#{auth.refresh_token}" "expires_at" : "#{auth.expires_at}" })
+end

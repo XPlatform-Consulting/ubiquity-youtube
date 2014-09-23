@@ -1,0 +1,48 @@
+#!/usr/bin/env ruby
+require 'logger'
+require 'optparse'
+
+begin
+  require 'ubiquity/youtube/client/google'
+rescue LoadError
+  lib_path = File.expand_path('../../lib', __FILE__)
+  unless $:.include?(lib_path)
+    $:.unshift(lib_path)
+    #warn("Retrying to load Ubiquity-YouTube after adding #{lib_path} to $LOAD_PATH. The GEM may not be installed correctly.")
+    retry
+  end
+  abort("Failed to load the Ubiquity-YouTube gem. Exception: #{$!}")
+end
+
+ARGV << '--help' if ARGV.empty?
+
+client_class = Ubiquity::YouTube::Client::Google
+
+@options = {
+  :category_id => 22,
+  :privacy_status => 'private',
+  :client_secrets_file_path => client_class.auth_helper.default_client_secrets_file_path
+}
+def options; @options end
+
+op = OptionParser.new
+op.on('--client-secrets-file-path PATH', 'The path to the file containing the client secrets data.', "\tdefault: #{options[:client_secrets_file_path]}") { |v| options[:client_secrets_file_path] = v }
+op.on('--file-path PATH', 'The path of the file to upload.') { |v| options[:file_path] = v }
+op.on('--category-id ID', 'The Id of the category to add the video to.', "\tdefault: #{options[:category_id]}") { |v| options[:category_id] = v }
+op.on('--privacy-status PRIVACY', 'The privacy setting for the video.', "\tdefault: #{options[:privacy_status]}") { |v| options[:privacy_status] = v }
+op.on('--video-description DESC', 'The description for the video.') { |v| options[:video_description] = v }
+op.on('--video-title TITLE', 'The title of the video.') { |v| options[:video_title] = v }
+op.on('--help', 'Display this screen.') { puts op; exit }
+op.parse!(ARGV.dup)
+
+
+
+args = options
+# client_secrets_file_path = options.delete(:client_secrets_file_path)
+# auth_helper =
+
+@client = client_class.new(args)
+def client; @client end
+
+#require 'irb'; ARGV.clear; IRB.start
+puts @client.video_insert(args)
