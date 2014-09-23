@@ -193,7 +193,7 @@ module Ubiquity
           end
 
           def process_authorization_code_manually
-            puts "Open a Browser and Navigate to: #{authorization.authorization_uri}"
+            puts "Open a Browser and Navigate to the following URI:\n\t #{authorization.authorization_uri(:redirect_uri => 'urn:ietf:wg:oauth:2.0:oob')}"
             puts 'Enter Authorization Code:'
             authorization.code = STDIN.gets.chomp
             authorization.instance_variable_set(:@expires_at, nil) # BUG FIX FOR EXPIRES AT NOT GETTING UPDATED DURING A REFRESH
@@ -225,8 +225,12 @@ module Ubiquity
           def redirect_uri; client_secrets.redirect_uris.first end
           def token_expires_at; authorization.expires_at.to_s end
 
-          def authorization_code_uri
-            %(#{authorization_uri}?client_id=#{client_id}&redirect_uri=#{redirect_uri}&scope=#{scope}&response_type=code&access_type=offline)
+          def authorization_code_uri(args = { })
+            _authorization_uri = args[:authorization_uri] || authorization_uri
+            _client_id = args[:client_id] || client_id
+            _redirect_uri = args[:redirect_uri] || redirect_uri
+            _scope = args[:scope] || scope
+            %(#{_authorization_uri}?client_id=#{_client_id}&redirect_uri=#{_redirect_uri}&scope=#{_scope}&response_type=code&access_type=offline)
           end
 
           def refresh_token_uri
