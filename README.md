@@ -22,12 +22,18 @@ Setup
   - Select "Credentials" in the "APIs & auth" menu in the left hand navigation bar   
   - Click on "Create new Client ID" in the OAuth section
   - Select "Installed application" under "APPLICATION TYPE" and "Other" as the "INSTALLED APPLICATION TYPE"
-  - Record the "CLIENT ID" and "CLIENT SECRET" for the 
+  - Record the "CLIENT ID" and "CLIENT SECRET" for the following steps 
   
 ##### Applications that have a Client ID and Client Secret
   - Navigate to the ubiquity-youtube/bin directory
   - Execute the following command: ./youtube_auth --client-id [Your Application Client ID] --client-secret [Your Application Client Secret]
+  - If the web server is able to launch then a browser window will open with a consent screen otherwise you will be given the link to the consent screen.
+    Accept the request and follow the instructions given to you after the consent screen.
+    
 
+##### Troubleshooting
+  - If you get an error stating 'no application name' check the "PRODUCT NAME" and "EMAIL ADDRESS" are set in the 'Consent screen' section in the Project Dashboard.
+    
 YouTube Authentication Executable [bin/youtube_auth](./bin/youtube_auth)
 -------------------------------------------------------------------------
 An executable that to facilitate the create of the client secrets file used for authentication.
