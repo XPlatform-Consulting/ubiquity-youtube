@@ -11,7 +11,7 @@ Installation
 Setup
 -----
 
-  In order to use the YouTube library you must first register your application in the [Google Developers Console](https://console.developers.google.com).
+  In order to use the YouTube library you must first register your application in the <a href="https://console.developers.google.com" target="_blank">Google Developers Console</a>.
   
 ##### New application
   - Browse to the Google Developers Console
