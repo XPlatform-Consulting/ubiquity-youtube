@@ -3,7 +3,7 @@ YouTube Library and Command Line Utilities
 
 Installation
 ------------
-  git <repo-path>
+  git clone https://github.com/XPlatform-Consulting/ubiquity-youtube.git
   cd ubiquity-youtube
   bundle install
 
@@ -32,12 +32,13 @@ YouTube Authentication Executable [bin/youtube_auth](./bin/youtube_auth)
 An executable that to facilitate the create of the client secrets file used for authentication.
 
 Usage: youtube_auth [options]
-        --client-secrets-file-path PATH
-                                     The path to the file containing the client secrets data.
-                                     	default: /Users/jw/.ubiquity_youtube_client_secrets_data.json
-        --client-id ID               The client id to use when making calls to the API.
-        --client-secret SECRET       The client secret to use when making calls to the API.
-        --help                       Displays this message.
+
+    --client-secrets-file-path PATH
+                                 The path to the file containing the client secrets data.
+                                  default: /Users/jw/.ubiquity_youtube_client_secrets_data.json
+    --client-id ID               The client id to use when making calls to the API.
+    --client-secret SECRET       The client secret to use when making calls to the API.
+    --help                       Displays this message.
         
 #### Examples of Usage:
 
@@ -53,17 +54,18 @@ YouTube Upload Executable [bin/youtube_upload](./bin/youtube_upload)
 An executable that to facilitate the upload of assets to YouTube
 
 Usage: youtube_upload [options]
-        --client-secrets-file-path PATH
-                                     The path to the file containing the client secrets data.
-                                     	default: /Users/jw/.ubiquity_youtube_client_secrets_data.json
-        --file-path PATH             The path of the file to upload.
-        --category-id ID             The Id of the category to add the video to.
-                                     	default: 22
-        --privacy-status PRIVACY     The privacy setting for the video.
-                                     	default: private
-        --video-description DESC     The description for the video.
-        --video-title TITLE          The title of the video.
-        --help                       Display this screen.
+
+    --client-secrets-file-path PATH
+                                 The path to the file containing the client secrets data.
+                                  default: /Users/jw/.ubiquity_youtube_client_secrets_data.json
+    --file-path PATH             The path of the file to upload.
+    --category-id ID             The Id of the category to add the video to.
+                                  default: 22
+    --privacy-status PRIVACY     The privacy setting for the video.
+                                  default: private
+    --video-description DESC     The description for the video.
+    --video-title TITLE          The title of the video.
+    --help                       Display this screen.
         
 #### Examples of Usage:
 
