@@ -3,9 +3,9 @@ YouTube Library and Command Line Utilities
 
 System Requirements
 ------------
-Ruby 1.8.7
-Git
-RubyGems
+    Ruby 1.8.7
+    Git
+    RubyGems
 
 Installation
 ------------
