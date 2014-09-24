@@ -1,9 +1,27 @@
 YouTube Library and Command Line Utilities
 ==========================================
 
+System Requirements
+------------
+Ruby 1.8.7
+Git
+RubyGems
+
 Installation
 ------------
 
+Mac OS X
+
+    git clone https://github.com/XPlatform-Consulting/ubiquity-youtube.git
+    cd ubiquity-youtube
+    bundle update
+    
+CentOS 6.4 or higher
+
+    yum install rubygems
+    yum install ruby-devel
+    gem install bundler
+    gem install faraday
     git clone https://github.com/XPlatform-Consulting/ubiquity-youtube.git
     cd ubiquity-youtube
     bundle update
