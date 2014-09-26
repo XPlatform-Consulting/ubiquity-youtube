@@ -3,28 +3,33 @@ YouTube Library and Command Line Utilities
 
 System Requirements
 ------------
-    Ruby 1.8.7
-    Git
+    <a href="https://www.ruby-lang.org/en/installation/">Ruby 1.8.7</a>
+    <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Git</a> 
     RubyGems
+    Bundler
+    
+Prerequisites
+-------------
 
+CentOS 6.4 or higher
+
+    yum install git
+    yum install ruby-devel
+    yum install rubygems
+    gem install bundler
+
+Mac OS X
+    
+    gem install bundler
+
+    
 Installation
 ------------
 
-Mac OS X
-
     git clone https://github.com/XPlatform-Consulting/ubiquity-youtube.git
     cd ubiquity-youtube
     bundle update
-    
-CentOS 6.4 or higher
 
-    yum install rubygems
-    yum install ruby-devel
-    gem install bundler
-    gem install faraday
-    git clone https://github.com/XPlatform-Consulting/ubiquity-youtube.git
-    cd ubiquity-youtube
-    bundle update
 
 Setup
 -----
@@ -37,6 +42,8 @@ Setup
   - Enter a project name and project id and press the "Create" button
   - Once your new project is ready, click on the project and select "Enable an API" from the Project Dashboard
   - Enable the API named "YouTube Data API v3"
+  - Select "Consent" in the "APIs & auth" menu in the left hand navigation bar     
+  - Verify that "PRODUCT NAME" and "EMAIL ADDRESS" are set
   - Select "Credentials" in the "APIs & auth" menu in the left hand navigation bar   
   - Click on "Create new Client ID" in the OAuth section
   - Select "Installed application" under "APPLICATION TYPE" and "Other" as the "INSTALLED APPLICATION TYPE"
