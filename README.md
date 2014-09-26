@@ -3,10 +3,11 @@ YouTube Library and Command Line Utilities
 
 System Requirements
 ------------
-    <a href="https://www.ruby-lang.org/en/installation/">Ruby 1.8.7</a>
-    <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Git</a> 
-    RubyGems
-    Bundler
+  
+  - <a href="https://www.ruby-lang.org/en/installation/" target="_blank">Ruby 1.8.7</a>
+  - <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git" target="_blank">Git</a> 
+  - RubyGems
+  - <a href="http://bundler.io/" target="_blank">Bundler</a>
     
 Prerequisites
 -------------
