@@ -1,39 +1,33 @@
-YouTube Library and Command Line Utilities
-==========================================
+# YouTube Library and Command Line Utilities
 
-System Requirements
-------------
+## System Requirements
   
-  - <a href="https://www.ruby-lang.org/en/installation/" target="_blank">Ruby 1.8.7</a>
+  - <a href="https://www.ruby-lang.org/en/installation/" target="_blank">Ruby 1.8.7 or Higher</a>
   - <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git" target="_blank">Git</a> 
   - RubyGems
   - <a href="http://bundler.io/" target="_blank">Bundler</a>
     
-Prerequisites
--------------
+## Prerequisites
 
-CentOS 6.4 or higher
+### CentOS 6.4 or higher
 
     yum install git
     yum install ruby-devel
     yum install rubygems
     gem install bundler
 
-Mac OS X
+### Mac OS X
     
     gem install bundler
-
     
-Installation
-------------
+## Installation
 
     git clone https://github.com/XPlatform-Consulting/ubiquity-youtube.git
     cd ubiquity-youtube
     bundle update
 
 
-Setup
------
+## Setup
 
   In order to use the YouTube library you must first register your application in the <a href="https://console.developers.google.com" target="_blank">Google Developers Console</a>.
   
@@ -60,8 +54,7 @@ Setup
 ##### Troubleshooting
   - If you get an error stating 'no application name' check the "PRODUCT NAME" and "EMAIL ADDRESS" are set in the 'Consent screen' section in the Project Dashboard.
     
-YouTube Authentication Executable [bin/youtube_auth](./bin/youtube_auth)
--------------------------------------------------------------------------
+## YouTube Authentication Executable [bin/youtube_auth](./bin/youtube_auth)
 An executable that to facilitate the create of the client secrets file used for authentication.
 
 Usage: youtube_auth [options]
@@ -82,8 +75,7 @@ Usage: youtube_auth [options]
   ./youtube_auth --client-id [CLIENT ID] --client-secret [CLIENT SECRET]
 
 
-YouTube Upload Executable [bin/youtube_upload](./bin/youtube_upload)
---------------------------------------------------------------------
+## YouTube Upload Executable [bin/youtube_upload](./bin/youtube_upload)
 An executable that to facilitate the upload of assets to YouTube
 
 Usage: youtube_upload [options]
@@ -92,6 +84,7 @@ Usage: youtube_upload [options]
                                  The path to the file containing the client secrets data.
                                   default: ~/.ubiquity_youtube_client_secrets_data.json
     --file-path PATH             The path of the file to upload.
+    --dir-path PATH              A glob pattern what will be used to submit each file. 
     --category-id ID             The Id of the category to add the video to.
                                   default: 22
     --privacy-status PRIVACY     The privacy setting for the video.
@@ -107,4 +100,15 @@ Usage: youtube_upload [options]
   ./youtube_upload --help
   
 ###### Simple Usage
-  ./youtube_upload --file-path /media/movie.mov --video-title "Title" --video-description "Description" --category-id 22 --privacy-status private --tags "tag 1,tag 2,tag 3" 
+  ./youtube_upload --file-path /media/movie.mov --video-title "Title" --video-description "Description" --category-id 22 --privacy-status private --tags "tag 1,tag 2,tag 3"
+   
+###### Submitting a Directory
+  ./youtube_upload --dir-path "/media/*.mov" --video-title "Title" --video-description "Description" --category-id 22 --privacy-status private --tags "tag 1,tag 2,tag 3"   
+
+## Contributing
+
+1. Fork it ( https://github.com/XPlatform-Consulting/ubiquity-youtube/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request

@@ -28,7 +28,8 @@ def options; @options end
 
 op = OptionParser.new
 op.on('--client-secrets-file-path PATH', 'The path to the file containing the client secrets data.', "\tdefault: #{options[:client_secrets_file_path]}") { |v| options[:client_secrets_file_path] = v }
-op.on('--file-path PATH', 'The path of the file to upload.') { |v| options[:file_path] = v }
+op.on('--file-path PATH', 'The path of the file to upload.') { |v| (options[:file_path] ||= [ ]) << v }
+op.on('--dir-path PATH', 'A glob pattern what will be used to submit each file') { |v| options[:dir_path] = v }
 op.on('--category-id ID', 'The Id of the category to add the video to.', "\tdefault: #{options[:category_id]}") { |v| options[:category_id] = v }
 op.on('--privacy-status PRIVACY', 'The privacy setting for the video.', "\tdefault: #{options[:privacy_status]}") { |v| options[:privacy_status] = v }
 op.on('--video-description DESC', 'The description for the video.') { |v| options[:description] = v }
@@ -37,9 +38,11 @@ op.on('--tags TAG1,TAG2,TAG3', Array, 'A list of tags to apply to the video.') {
 op.on('--help', 'Display this screen.') { puts op; exit }
 op.parse!(ARGV.dup)
 
+dir_path = options.delete(:dir_path) { }
+file_path = options.delete(:file_path) { [ ] }
+file_path = file_path + Dir.glob(dir_path) if dir_path
+
 args = options
-puts args
-exit
 # client_secrets_file_path = options.delete(:client_secrets_file_path)
 # auth_helper =
 
@@ -47,4 +50,4 @@ exit
 def client; @client end
 
 #require 'irb'; ARGV.clear; IRB.start
-puts @client.video_insert(args)
+file_path.each { |fp| puts @client.video_insert(args.merge(:file_path => fp)) }
